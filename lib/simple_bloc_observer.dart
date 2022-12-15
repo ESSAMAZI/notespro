@@ -6,6 +6,7 @@ class SimpleBlocObserver implements BlocObserver {
   void onChange(BlocBase bloc, Change change) {
     // ignore: todo
     // TODO: implement onChange
+    //معرفه حالة كل بلوك اين وصلنا
     debugPrint('change=$change');
   }
 
