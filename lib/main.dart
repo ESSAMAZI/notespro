@@ -13,7 +13,7 @@ void main() async {
 
   Bloc.observer = SimpleBlocObserver();
   //فتح قاعده البيانات
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
   //الاتصال وحفظ
   //التعامل مع المودل المحدد
   Hive.registerAdapter(NoteModelAdapter());
