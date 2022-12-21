@@ -12,11 +12,12 @@ void main() async {
   await Hive.initFlutter(); //استدعاء مكتبه hive_flutter
 
   Bloc.observer = SimpleBlocObserver();
-  //فتح قاعده البيانات
-  await Hive.openBox<NoteModel>(kNotesBox);
   //الاتصال وحفظ
   //التعامل مع المودل المحدد
   Hive.registerAdapter(NoteModelAdapter());
+  //فتح قاعده البيانات
+  // عند فتح قاعده البيانات لابد من تحديد مع اي مودل رح يتعامل معه
+  await Hive.openBox<NoteModel>(kNotesBox);
   runApp(const NotesAPP());
 }
 
@@ -27,20 +28,20 @@ class NotesAPP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //لو اردنا الوصل البيانات الى كل الشاشات
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddNoteCubit()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-          //تغير الخط كامل في التطبيق
-          fontFamily: 'Poppins',
-          // backgroundColor:
-        ),
-        home: const NoteView(),
+    // return MultiBlocProvider(
+    //   providers: [
+    //     BlocProvider(create: (context) => AddNoteCubit()),
+    //   ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        //تغير الخط كامل في التطبيق
+        fontFamily: 'Poppins',
+        // backgroundColor:
       ),
+      home: const NoteView(),
     );
+    //}/
   }
 }

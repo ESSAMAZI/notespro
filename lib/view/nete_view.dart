@@ -27,6 +27,7 @@ class NoteView extends StatelessWidget {
         },
         child: const Icon(Icons.add),
       ),
+      //جسم التصميم 1
       body: const NoteViewBody(),
     );
   }

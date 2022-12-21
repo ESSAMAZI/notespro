@@ -14,12 +14,14 @@ class SimpleBlocObserver implements BlocObserver {
   void onClose(BlocBase bloc) {
     // ignore: todo
     // TODO: implement onClose
+    debugPrint('Close=$bloc');
   }
 
   @override
   void onCreate(BlocBase bloc) {
     // ignore: todo
     // TODO: implement onCreate
+    debugPrint('Create=$bloc');
   }
 
   @override

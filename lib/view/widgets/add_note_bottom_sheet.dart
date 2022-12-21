@@ -23,6 +23,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
+          // يجب ان ياتي بعده ModalProgressHUD لا ياتي قبل العنصر SingleChildScrollView
           return ModalProgressHUD(
               //في حاله الانتظار يظهر لنا دائره التحميل
               inAsyncCall: state is AddNoteLoading ? true : false,

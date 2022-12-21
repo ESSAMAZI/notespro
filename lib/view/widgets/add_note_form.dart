@@ -46,6 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onTap: () {
               if (formky.currentState!.validate()) {
                 formky.currentState!.save();
+                // الاضافة
                 var noteModel = NoteModel(
                     title: tilte!,
                     subTitle: subTitle!,

@@ -15,6 +15,7 @@ class NoteViewBody extends StatelessWidget {
         children: const [
           SizedBox(height: 45),
           // الجزء الخاص بالنص الذي يحتوي ايضا على ايقونة االبحث
+          //الشكل العام الخارجي
           CustomAppBar(title: 'Notes', icon: Icons.search),
 
           //الحزء الخاص التصميم الملاحظه
