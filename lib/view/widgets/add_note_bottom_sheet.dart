@@ -27,9 +27,13 @@ class AddNoteBottomSheet extends StatelessWidget {
           return AbsorbPointer(
             //يمنع استخدام اي شي على الشاشة
             absorbing: state is AddNoteLoading ? true : false,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: SingleChildScrollView(child: AddNoteForm()),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  right: 16,
+                  left: 16,
+                  //تجلب لنا مساحه بارتفاع الكيبورد
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },
