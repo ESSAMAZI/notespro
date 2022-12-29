@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({Key? key, required this.icon}) : super(key: key);
+  const CustomSearchIcon({Key? key, required this.icon, this.onPressed})
+      : super(key: key);
   final IconData icon;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     // تم عمل حاويه وتم تصميمها على شكل كرد
@@ -13,8 +15,9 @@ class CustomSearchIcon extends StatelessWidget {
         color: Colors.white.withOpacity(.05), //الشفافيه
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Center(
-        child: Icon(
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(
           icon,
           size: 28,
         ),

@@ -4,16 +4,22 @@ import 'package:notepro/constans.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {Key? key, required this.hint, this.maxLine = 1, this.onSaved})
+      {Key? key,
+      required this.hint,
+      this.maxLine = 1,
+      this.onSaved,
+      this.onChanged})
       : super(key: key);
   final String hint;
   final int maxLine;
   final void Function(String?)? onSaved;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved,
+      onChanged: onChanged,
       //null التحقق من البيانات انها ليست فارغة او ب
       validator: (value) {
         if (value?.isEmpty ?? true) {
