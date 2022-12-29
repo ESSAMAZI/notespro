@@ -12,19 +12,14 @@ part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit() : super(NotesInitial());
 
-  fetchAllNotes() async {
-    emit(NotesLoading());
-
-    try {
-      //نستدعي البوكس الذي رح نخزن فيها
-      //var noteBox = Hive.box(kNotesBox);
-      var noteBox = Hive.box<NoteModel>(kNotesBox);
-      //جلب كل البيانات  المذكره
-      List<NoteModel> notes = noteBox.values.toList();
-      // noteBox.values.toList();
-      emit(NotesSuccess(notes));
-    } catch (e) {
-      emit(NotesFailur(e.toString()));
-    }
+  List<NoteModel>? notes;
+  fetchAllNotes() {
+    //نستدعي البوكس الذي رح نخزن فيها
+    //var noteBox = Hive.box(kNotesBox);
+    var noteBox = Hive.box<NoteModel>(kNotesBox);
+    //جلب كل البيانات  المذكره
+    notes = noteBox.values.toList();
+    // noteBox.values.toList();
+    //emit(NotesSuccess(notes!));
   }
 }
