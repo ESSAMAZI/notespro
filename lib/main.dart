@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notepro/constans.dart';
+import 'package:notepro/cubits/cubit_cubit/notes_cubit.dart';
 import 'package:notepro/model/note_model.dart';
 import 'package:notepro/simple_bloc_observer.dart';
 import 'package:notepro/view/nete_view.dart';
@@ -31,16 +32,19 @@ class NotesAPP extends StatelessWidget {
     //   providers: [
     //     BlocProvider(create: (context) => AddNoteCubit()),
     //   ],
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        //تغير الخط كامل في التطبيق
-        fontFamily: 'Poppins',
-        // backgroundColor:
+    return BlocProvider(
+      // الخاص بها عند اضافة البيانات وتحديث البياناتcontext من اجل الوصول
+      create: (context) => NotesCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          //تغير الخط كامل في التطبيق
+          fontFamily: 'Poppins',
+          // backgroundColor:
+        ),
+        home: const NoteView(),
       ),
-      home: const NoteView(),
     );
-    //}/
   }
 }

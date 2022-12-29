@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notepro/cubits/cubit_cubit/notes_cubit.dart';
 import 'package:notepro/model/note_model.dart';
 
 import 'package:notepro/view/widgets/edit_note_view.dart';
@@ -40,6 +42,8 @@ class NoteItems extends StatelessWidget {
               trailing: IconButton(
                   onPressed: () {
                     note.delete();
+                    //عمل تحديث لصفحة عند عمل مسح اي عنصر
+                    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                   },
                   icon: const Icon(
                     Icons.delete,
