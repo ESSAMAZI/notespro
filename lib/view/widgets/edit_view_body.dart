@@ -16,8 +16,14 @@ class EditNoteViewBody extends StatefulWidget {
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   String? title, content;
+  var titleh = TextEditingController();
+  var contenth = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    titleh.text = widget.note.title;
+    contenth.text = widget.note.subTitle;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
@@ -41,14 +47,16 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           ),
           const SizedBox(height: 50),
           CustomTextField(
-            hint: widget.note.title,
+            hint: 'title',
+            controller: titleh,
             onChanged: (value) {
               title = value;
             },
           ),
           const SizedBox(height: 14),
           CustomTextField(
-            hint: widget.note.subTitle,
+            hint: 'subTitle',
+            controller: contenth,
             maxLine: 5,
             onChanged: (value) {
               content = value;

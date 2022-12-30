@@ -8,12 +8,14 @@ class CustomTextField extends StatelessWidget {
       required this.hint,
       this.maxLine = 1,
       this.onSaved,
-      this.onChanged})
+      this.onChanged,
+      this.controller})
       : super(key: key);
   final String hint;
   final int maxLine;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
+      controller: controller,
       cursorColor: KPrimaryColor, //مؤشر النص
       maxLines: maxLine,
       decoration: InputDecoration(
