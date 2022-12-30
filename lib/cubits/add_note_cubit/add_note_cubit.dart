@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notepro/constans.dart';
@@ -7,7 +8,11 @@ import 'package:notepro/model/note_model.dart';
 class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(NotesInitial());
 
+  // تخزين اللون
+  Color color = const Color(0xff19535f);
+
   addNote(NoteModel note) async {
+    note.color = color.value;
     emit(AddNoteLoading());
 
     try {
