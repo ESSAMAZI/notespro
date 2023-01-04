@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notepro/constans.dart';
 import 'package:notepro/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notepro/cubits/add_note_cubit/add_note_state.dart';
 import 'package:notepro/cubits/cubit_cubit/notes_cubit.dart';
@@ -22,6 +23,7 @@ class AddNoteBottomSheet extends StatelessWidget {
             BlocProvider.of<NotesCubit>(context).fetchAllNotes();
             // اغلاق الشاشة
             Navigator.pop(context);
+            ShowToast(text: 'Add Note Success', states: ToastStates.SUCCESS);
           }
         },
         builder: (context, state) {

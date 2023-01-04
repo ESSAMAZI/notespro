@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notepro/constans.dart';
 import 'package:notepro/cubits/cubit_cubit/notes_cubit.dart';
 import 'package:notepro/model/note_model.dart';
 
@@ -45,6 +46,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               widget.note.save();
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
+              ShowToast(text: 'Edit Note Success', states: ToastStates.SUCCESS);
             },
           ),
           const SizedBox(height: 50),
