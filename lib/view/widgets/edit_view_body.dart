@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notepro/cubits/cubit_cubit/notes_cubit.dart';
 import 'package:notepro/model/note_model.dart';
+
 import 'package:notepro/view/widgets/custom_app_bar.dart';
 import 'package:notepro/view/widgets/custom_text_field.dart';
+import 'package:notepro/view/widgets/edit_note_colors_list_view.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({Key? key, required this.note}) : super(key: key);
@@ -61,6 +63,10 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             onChanged: (value) {
               content = value;
             },
+          ),
+          EditNoteColorsList(
+            //نستقبل النوت معانا
+            note: widget.note,
           ),
         ],
       ),

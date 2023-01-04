@@ -23,7 +23,7 @@ class _NoteViewBodyState extends State<NoteViewBody> {
   Widget build(BuildContext context) {
     return Padding(
       //
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 18),
 
       child: Column(
         children: const [

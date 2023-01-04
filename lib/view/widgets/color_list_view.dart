@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notepro/constans.dart';
 import 'package:notepro/cubits/add_note_cubit/add_note_cubit.dart';
 
 class ColorItme extends StatelessWidget {
@@ -36,20 +37,13 @@ class ColorsListView extends StatefulWidget {
 
 class _ColorsListViewState extends State<ColorsListView> {
   int currentIndex = 0; // عنوان اللون المحدد
-  //color palette generator
-  List<Color> colors = const [
-    Color(0xff19535f),
-    Color(0xff0b7a75),
-    Color(0xffD7C9AA),
-    Color(0xff7B2D26),
-    Color(0xffF0F3F5),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 37 * 2,
       child: ListView.builder(
-        itemCount: colors.length,
+        itemCount: kColors.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -58,11 +52,11 @@ class _ColorsListViewState extends State<ColorsListView> {
                 setState(() {
                   currentIndex = index;
                   //ارسال اللون
-                  BlocProvider.of<AddNoteCubit>(context).color = colors[index];
+                  BlocProvider.of<AddNoteCubit>(context).color = kColors[index];
                 });
               },
               child: ColorItme(
-                  color: colors[index], isActive: currentIndex == index)),
+                  color: kColors[index], isActive: currentIndex == index)),
         ),
       ),
     );
